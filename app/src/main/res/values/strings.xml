@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GitHubExplorer</string>
+    <string name="username_hint">User name</string>
+    <string name="search">Search</string>
+    <string name="language">Language: %1s</string>
+    <string name="stars">Stars: %1s</string>
+</resources>
