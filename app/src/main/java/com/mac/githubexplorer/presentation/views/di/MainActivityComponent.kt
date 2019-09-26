@@ -12,9 +12,6 @@ interface MainActivityComponent {
 
     @Component.Builder
     interface Builder {
-//        @BindsInstance
-//        fun mainActivityModule(mainActivityModule: MainActivityModule): Builder
-
         fun build(): MainActivityComponent
 
         fun plusAppComponent(appComponent: AppComponent): Builder

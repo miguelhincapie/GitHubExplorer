@@ -3,6 +3,7 @@ package com.mac.githubexplorer.presentation.views
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.mac.githubexplorer.R
@@ -63,5 +64,24 @@ class MainActivity : AppCompatActivity() {
                 adapter.gitHubRepos = response.data as MutableList<Repo>
             }
         }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "MainActiviy onPause")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "MainActiviy onStop")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "MainActiviy onDestroy")
+    }
+
+    companion object {
+        private const val TAG = "dagger-MainActivity"
     }
 }
