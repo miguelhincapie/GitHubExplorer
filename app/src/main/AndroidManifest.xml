@@ -12,8 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.views.Activity2"></activity>
-        <activity android:name=".presentation.views.MainActivity">
+        <activity
+            android:name=".presentation.ui.Activity2"
+            android:label="@string/activity2_label" />
+        <activity android:name=".presentation.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

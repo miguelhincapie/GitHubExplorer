@@ -1,4 +1,4 @@
-package com.mac.githubexplorer.presentation.viewmodels
+package com.mac.githubexplorer.presentation.presenter.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

@@ -9,47 +9,46 @@ import com.mac.githubexplorer.data.repositories.GitHubReposRepositoryImpl
 import com.mac.githubexplorer.domain.repositories.GitHubReposRepository
 import dagger.Module
 import dagger.Provides
-import dagger.Reusable
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 
 @Module
 class DataModule {
 
-    private val TAG = "dagger-DataModule"
-
     @DataScope
     @Provides
     fun provideOkHttpClient(): OkHttpClient {
-        Log.d(TAG, "creando OkHttpClientBuilder")
+        Log.d(TAG, "creating an instance of OkHttpClientBuilder")
         return OkHttpClientBuilder().okHttpClientInstance
     }
 
     @DataScope
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
-        Log.d(TAG, "creando RetrofitBuilder")
+        Log.d(TAG, "creating an instance of RetrofitBuilder")
         return RetrofitBuilder(okHttpClient).retrofitInstance
     }
 
     @DataScope
     @Provides
     fun provideGitHubReposService(retrofit: Retrofit): GitHubReposService {
-        Log.d(TAG, "creando GitHubReposService")
+        Log.d(TAG, "creating an instance of GitHubReposService")
         return retrofit.create(GitHubReposService::class.java)
     }
 
-    @Reusable
     @Provides
     fun provideRepoRemoteDataSource(gitHubReposService: GitHubReposService): RepoRemoteDataSource {
-        Log.d(TAG, "creando RepoRemoteDataSource")
+        Log.d(TAG, "creating an instance of RepoRemoteDataSource")
         return RepoRemoteDataSource(gitHubReposService)
     }
 
-    @Reusable
     @Provides
     fun provideGitHubRepoRepositoryImpl(repoRemoteDataSource: RepoRemoteDataSource): GitHubReposRepository {
-        Log.d(TAG, "creando GitHubReposRepositoryImpl")
+        Log.d(TAG, "creating an instance of GitHubReposRepositoryImpl")
         return GitHubReposRepositoryImpl(repoRemoteDataSource)
+    }
+
+    companion object {
+        private const val TAG = "dagger-DataModule"
     }
 }

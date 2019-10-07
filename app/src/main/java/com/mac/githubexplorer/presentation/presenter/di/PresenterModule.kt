@@ -1,20 +1,21 @@
-package com.mac.githubexplorer.presentation.views.di
+package com.mac.githubexplorer.presentation.presenter.di
 
 import android.util.Log
 import com.mac.githubexplorer.domain.usecases.GetRemoteStarredReposUseCase
-import com.mac.githubexplorer.presentation.viewmodels.ReposViewModelFactory
+import com.mac.githubexplorer.presentation.presenter.viewmodel.ReposViewModelFactory
 import dagger.Module
 import dagger.Provides
 
 @Module
-class MainActivityModule {
+class PresenterModule {
 
-    private val TAG = "dagger-MainActivityM"
-
-    @MainActivityScope
     @Provides
     fun provideViewModelFactory(githubReposUseCase: GetRemoteStarredReposUseCase): ReposViewModelFactory {
-        Log.d(TAG, "creando ReposViewModelFactory")
+        Log.d(TAG, "creating an instance of ReposViewModelFactory")
         return ReposViewModelFactory(githubReposUseCase)
+    }
+
+    companion object {
+        private const val TAG = "dagger-Presentation"
     }
 }

@@ -1,4 +1,4 @@
-package com.mac.githubexplorer.presentation.views
+package com.mac.githubexplorer.presentation.ui
 
 import android.view.LayoutInflater
 import android.view.View

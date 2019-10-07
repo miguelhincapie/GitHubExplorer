@@ -1,35 +1,44 @@
 package com.mac.githubexplorer.presentation
 
 import android.app.Application
+import com.mac.githubexplorer.data.di.DaggerDataComponent
+import com.mac.githubexplorer.domain.di.DaggerDomainComponent
+import com.mac.githubexplorer.presentation.di.AppComponent
 import com.mac.githubexplorer.presentation.di.DaggerAppComponent
-import com.mac.githubexplorer.presentation.views.di.Activity2Component
-import com.mac.githubexplorer.presentation.views.di.DaggerActivity2Component
-import com.mac.githubexplorer.presentation.views.di.DaggerMainActivityComponent
-import com.mac.githubexplorer.presentation.views.di.MainActivityComponent
+import dagger.android.AndroidInjector
+import dagger.android.DispatchingAndroidInjector
+import dagger.android.HasAndroidInjector
+import javax.inject.Inject
 
 
-class App : Application() {
+class App : Application(), HasAndroidInjector {
 
-    fun getMainActivityComponent(): MainActivityComponent {
-        val appComponent = DaggerAppComponent
-            .factory()
-            .build(this)
-        val dataComponent = appComponent
-            .plusDataComponent()
-            .build()
-        val domainComponent = dataComponent
-            .plusDomainComponent().build()
-        return DaggerMainActivityComponent.builder()
-            .plusAppComponent(appComponent)
-            .plusGetRemoteStarredReposUseCase(domainComponent.provideGetRemoteStarredReposUseCase())
-            .build()
+    @Inject
+    lateinit var injector: DispatchingAndroidInjector<Any>
+
+    override fun androidInjector(): AndroidInjector<Any> {
+        return injector
     }
 
-    fun getActivity2Component(): Activity2Component {
+    override fun onCreate() {
+        super.onCreate()
+        getAppComponent().inject(this)
+    }
+
+    private fun getAppComponent(): AppComponent {
+        val dataComponent = DaggerDataComponent
+            .factory()
+            .build()
+
+        val domainComponent = DaggerDomainComponent
+            .factory()
+            .build(dataComponent.provideGitHubReposRepository())
+
         val appComponent = DaggerAppComponent
             .factory()
-            .build(this)
-        return DaggerActivity2Component.factory()
-            .plus(appComponent)
+            .build(this, domainComponent)
+        appComponent.inject(this)
+
+        return appComponent
     }
 }

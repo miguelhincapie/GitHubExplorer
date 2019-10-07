@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.views.MainActivity">
+    tools:context=".presentation.ui.MainActivity">
 
     <Button
         android:id="@+id/button_search"
@@ -41,7 +41,7 @@
         android:id="@+id/button_gotoanotheractivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@android:string/ok"
+        android:text="@string/button_next_activity_label"
         app:layout_constraintBottom_toTopOf="@+id/button_search"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
