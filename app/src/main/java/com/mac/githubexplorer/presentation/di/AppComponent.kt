@@ -1,21 +1,31 @@
 package com.mac.githubexplorer.presentation.di
 
 import android.content.Context
-import com.mac.githubexplorer.data.di.DataComponent
+import com.mac.githubexplorer.domain.di.DomainComponent
+import com.mac.githubexplorer.presentation.App
+import com.mac.githubexplorer.presentation.ui.di.UiBindingModule
 import dagger.BindsInstance
 import dagger.Component
-import javax.inject.Singleton
+import dagger.android.AndroidInjectionModule
+import dagger.android.AndroidInjector
+import dagger.android.DaggerApplication
 
-@Singleton
-@Component(modules = [AppModule::class])
-interface AppComponent {
+//@AppScope
+@Component(
+    modules = [AndroidInjectionModule::class, UiBindingModule::class],
+    dependencies = [DomainComponent::class]
+)
+interface AppComponent : AndroidInjector<DaggerApplication> {
+
+    fun inject(app: App)
 
     @Component.Factory
     interface Factory {
-        fun build(@BindsInstance context: Context): AppComponent
+        fun build(
+            @BindsInstance context: Context,
+            domainComponent: DomainComponent
+        ): AppComponent
     }
 
     fun getContext(): Context
-
-    fun plusDataComponent(): DataComponent.Factory
 }

@@ -5,17 +5,17 @@ import com.mac.githubexplorer.domain.repositories.GitHubReposRepository
 import com.mac.githubexplorer.domain.usecases.GetRemoteStarredReposUseCase
 import dagger.Module
 import dagger.Provides
-import dagger.Reusable
 
 @Module
 class DomainModule {
 
-    private val TAG = "dagger-DomainModule"
-
-    @Reusable
     @Provides
     fun provideGetRemoteStarredReposUseCase(gitHubReposRepository: GitHubReposRepository): GetRemoteStarredReposUseCase {
-        Log.d(TAG, "creando GetRemoteStarredReposUseCase")
+        Log.d(TAG, "creating an instance of GetRemoteStarredReposUseCase")
         return GetRemoteStarredReposUseCase(gitHubReposRepository)
+    }
+
+    companion object {
+        private const val TAG = "dagger-DomainModule"
     }
 }

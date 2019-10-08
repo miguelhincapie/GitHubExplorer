@@ -1,4 +1,4 @@
-package com.mac.githubexplorer.presentation.viewmodels
+package com.mac.githubexplorer.presentation.presenter.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -40,6 +40,7 @@ class ReposViewModel(private val getRemoteStarredReposUseCase: GetRemoteStarredR
     }
 
     override fun onCleared() {
+        Log.d(TAG, "About to call compositeDisposable.clear()")
         compositeDisposable.clear()
     }
 

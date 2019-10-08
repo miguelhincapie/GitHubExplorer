@@ -1,15 +1,16 @@
 package com.mac.githubexplorer.domain.di
 
+import com.mac.githubexplorer.domain.repositories.GitHubReposRepository
 import com.mac.githubexplorer.domain.usecases.GetRemoteStarredReposUseCase
-import dagger.Subcomponent
+import dagger.BindsInstance
+import dagger.Component
 
-@DomainScope
-@Subcomponent(modules = [DomainModule::class])
+@Component(modules = [DomainModule::class])
 interface DomainComponent {
 
-    @Subcomponent.Factory
+    @Component.Factory
     interface Factory {
-        fun build(): DomainComponent
+        fun build(@BindsInstance gitHubReposRepository: GitHubReposRepository): DomainComponent
     }
 
     fun provideGetRemoteStarredReposUseCase(): GetRemoteStarredReposUseCase
