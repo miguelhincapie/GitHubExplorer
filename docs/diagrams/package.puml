@@ -1,0 +1,27 @@
+@startwbs
++ GitHubExplorer
+ + app
+  + di
+  + model
+  + presenter
+   + di
+   + viewmodel
+  + ui
+   + di
+  + utils
+ + domain
+  + di
+  + entities
+  + interfaces
+  + usecases
+ + data
+  + db
+   + dao
+   + entities
+  + di
+  + remote
+   + api
+   + dtos
+  + repositories
+   + datasources
+@endwbs

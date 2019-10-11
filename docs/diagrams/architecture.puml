@@ -1,0 +1,34 @@
+@startuml
+node "UI layer    " {
+    package "app" {
+        rectangle "ui" as ui #DAE8FC
+        rectangle "view model" as viewmodel #D5E8D4
+    }
+}
+
+node "Domain layer" as domainlayer{
+    rectangle "use cases" as usecases #FFE6CC
+    rectangle "entities" as entities #FFF2CC
+    rectangle "interfaces" as interfaces #FFE6CC
+}
+
+node "Data layer" as datalayer {
+    rectangle "repositories" as repositories #D5E8D4
+    database "db (room)" as db {
+        rectangle "dao" as dao #DAE8FC
+
+    }
+    package "remote" as remote {
+        rectangle "api" as api #DAE8FC
+
+    }
+}
+
+ui --> viewmodel
+viewmodel --> usecases
+usecases --> entities
+interfaces -up-> entities
+repositories -up-> interfaces
+remote -up-> repositories
+db -up-> repositories
+@enduml
