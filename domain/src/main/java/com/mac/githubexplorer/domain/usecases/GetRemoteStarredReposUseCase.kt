@@ -1,7 +1,7 @@
 package com.mac.githubexplorer.domain.usecases
 
 import com.mac.githubexplorer.domain.entities.Repo
-import com.mac.githubexplorer.domain.repositories.GitHubReposRepository
+import com.mac.githubexplorer.domain.interfaces.GitHubReposRepository
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

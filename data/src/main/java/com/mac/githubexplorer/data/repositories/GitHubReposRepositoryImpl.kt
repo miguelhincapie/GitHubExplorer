@@ -2,7 +2,7 @@ package com.mac.githubexplorer.data.repositories
 
 import com.mac.githubexplorer.domain.entities.Repo
 import com.mac.githubexplorer.data.remote.RepoRemoteDataSource
-import com.mac.githubexplorer.domain.repositories.GitHubReposRepository
+import com.mac.githubexplorer.domain.interfaces.GitHubReposRepository
 import io.reactivex.Observable
 
 class GitHubReposRepositoryImpl(private val repoRemoteDataSource: RepoRemoteDataSource):

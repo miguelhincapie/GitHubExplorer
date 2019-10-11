@@ -6,7 +6,7 @@ import com.mac.githubexplorer.data.remote.RepoRemoteDataSource
 import com.mac.githubexplorer.data.remote.RetrofitBuilder
 import com.mac.githubexplorer.data.remote.api.GitHubReposService
 import com.mac.githubexplorer.data.repositories.GitHubReposRepositoryImpl
-import com.mac.githubexplorer.domain.repositories.GitHubReposRepository
+import com.mac.githubexplorer.domain.interfaces.GitHubReposRepository
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

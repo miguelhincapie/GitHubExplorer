@@ -1,4 +1,4 @@
-package com.mac.githubexplorer.domain.repositories
+package com.mac.githubexplorer.domain.interfaces
 
 import com.mac.githubexplorer.domain.entities.Repo
 import io.reactivex.Observable

@@ -1,6 +1,6 @@
 package com.mac.githubexplorer.domain.di
 
-import com.mac.githubexplorer.domain.repositories.GitHubReposRepository
+import com.mac.githubexplorer.domain.interfaces.GitHubReposRepository
 import com.mac.githubexplorer.domain.usecases.GetRemoteStarredReposUseCase
 import dagger.BindsInstance
 import dagger.Component

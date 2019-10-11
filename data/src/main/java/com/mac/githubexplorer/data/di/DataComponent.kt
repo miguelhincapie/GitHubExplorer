@@ -1,6 +1,6 @@
 package com.mac.githubexplorer.data.di
 
-import com.mac.githubexplorer.domain.repositories.GitHubReposRepository
+import com.mac.githubexplorer.domain.interfaces.GitHubReposRepository
 import dagger.Component
 
 @DataScope
