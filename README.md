@@ -13,7 +13,7 @@ Personal project for a multi-module simple app following MVVM + Clean architectu
 <img src="https://github.com/miguelhincapie/GitHubExplorer/blob/master/docs/diagrams/architecture.svg">
 
 ### Package diagram
-<img src="https://github.com/miguelhincapie/GitHubExplorer/blob/master/docs/diagrams/package.png">
+<img width="515" height="570" src="https://github.com/miguelhincapie/GitHubExplorer/blob/master/docs/diagrams/package.png">
 
 ### Presentation layer
 
