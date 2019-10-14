@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.mac.githubexplorer.domain.entities.Repo
 import com.mac.githubexplorer.domain.usecases.GetRemoteStarredReposUseCase
-import com.mac.githubexplorer.presentation.utils.Data
-import com.mac.githubexplorer.presentation.utils.Status
+import com.mac.githubexplorer.presentation.model.Data
+import com.mac.githubexplorer.presentation.model.Status
 import io.reactivex.disposables.CompositeDisposable
 
 class ReposViewModel(private val getRemoteStarredReposUseCase: GetRemoteStarredReposUseCase) :

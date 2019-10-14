@@ -10,9 +10,10 @@ import com.mac.githubexplorer.R
 import com.mac.githubexplorer.domain.entities.Repo
 import com.mac.githubexplorer.presentation.presenter.viewmodel.ReposViewModel
 import com.mac.githubexplorer.presentation.presenter.viewmodel.ReposViewModelFactory
-import com.mac.githubexplorer.presentation.utils.Data
-import com.mac.githubexplorer.presentation.utils.Status
-import com.mac.githubexplorer.presentation.utils.observe
+import com.mac.githubexplorer.presentation.model.Data
+import com.mac.githubexplorer.presentation.model.Status
+import com.mac.githubexplorer.presentation.model.utils.observe
+import com.mac.githubexplorer.presentation.ui.adapters.GitHubRepoAdapter
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
