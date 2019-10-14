@@ -19,14 +19,14 @@ class DataModule {
     @Provides
     fun provideOkHttpClient(): OkHttpClient {
         Log.d(TAG, "creating an instance of OkHttpClientBuilder")
-        return OkHttpClientBuilder().okHttpClientInstance
+        return OkHttpClientBuilder().build()
     }
 
     @DataScope
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         Log.d(TAG, "creating an instance of RetrofitBuilder")
-        return RetrofitBuilder(okHttpClient).retrofitInstance
+        return RetrofitBuilder(okHttpClient).build()
     }
 
     @DataScope

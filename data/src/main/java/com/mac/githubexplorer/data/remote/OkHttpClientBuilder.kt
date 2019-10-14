@@ -4,10 +4,10 @@ import com.mac.githubexplorer.data.BuildConfig
 import okhttp3.OkHttpClient
 
 class OkHttpClientBuilder {
-    var okHttpClientInstance: OkHttpClient
-        private set
-
-    init {
+    /**
+     * For simplicity nothing related to cache is build/added.
+     */
+    fun build(): OkHttpClient {
         val okHttpBuilder = OkHttpClient.Builder()
 
         if (BuildConfig.BUILD_TYPE != "debug") {
@@ -16,6 +16,6 @@ class OkHttpClientBuilder {
                 chain.proceed(chain.request())
             }
         }
-        okHttpClientInstance = okHttpBuilder.build()
+        return okHttpBuilder.build()
     }
 }
