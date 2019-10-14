@@ -2,7 +2,10 @@ package com.mac.githubexplorer.data.remote.dtos
 
 import com.google.gson.annotations.SerializedName
 
-// Network DTO
+/**
+ * Network DTO.
+ * Only a few fields are being held from github's response.
+ */
 data class RepoNetwork(
     @SerializedName("id")
     val id: Int?,
@@ -14,6 +17,6 @@ data class RepoNetwork(
     val description: String?,
     @SerializedName("language")
     val language: String?,
-    @SerializedName("stargazersCount")
+    @SerializedName("stargazers_count")
     val stargazersCount: Int?
 )
