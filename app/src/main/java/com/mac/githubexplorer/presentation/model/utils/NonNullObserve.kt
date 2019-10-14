@@ -1,4 +1,4 @@
-package com.mac.githubexplorer.presentation.utils
+package com.mac.githubexplorer.presentation.model.utils
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData

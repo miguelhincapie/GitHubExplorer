@@ -1,4 +1,4 @@
-package com.mac.githubexplorer.presentation.utils
+package com.mac.githubexplorer.presentation.model
 
 data class Data<RequestData>(
     var responseType: Status,
