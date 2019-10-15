@@ -18,5 +18,7 @@ data class RepoNetwork(
     @SerializedName("language")
     val language: String?,
     @SerializedName("stargazers_count")
-    val stargazersCount: Int?
+    val stargazersCount: Int?,
+    @SerializedName("owner")
+    val ownerNetwork: OwnerNetwork?
 )
