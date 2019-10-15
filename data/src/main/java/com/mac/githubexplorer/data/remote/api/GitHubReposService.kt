@@ -16,6 +16,6 @@ interface GitHubReposService {
     @GET("repos/{user}/{repo_name}")
     fun getRepoDetails(
         @Path("user") userName: String,
-        @Path("user") repo_name: String
+        @Path("repo_name") repo_name: String
     ): Single<RepoDetailNetwork>
 }
