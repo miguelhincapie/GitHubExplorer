@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity(), RepoListAdapter.GitHubRepoListListener
         intent = Intent(this, RepoDetailActivity::class.java)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         val bundle = Bundle()
-        bundle.putString(USER_NAME, repo.owner) // TODO working on modify DTO in order to get repo owner
+        bundle.putString(USER_NAME, repo.owner.login)
         bundle.putString(REPO_NAME, repo.name)
         intent.putExtras(bundle)
         startActivity(intent)
