@@ -1,9 +1,11 @@
 package com.mac.githubexplorer.data.repositories
 
-import com.mac.githubexplorer.domain.entities.Repo
 import com.mac.githubexplorer.data.db.entities.RepoDB
+import com.mac.githubexplorer.data.remote.dtos.OwnerNetwork
 import com.mac.githubexplorer.data.remote.dtos.RepoDetailNetwork
 import com.mac.githubexplorer.data.remote.dtos.RepoNetwork
+import com.mac.githubexplorer.domain.entities.Owner
+import com.mac.githubexplorer.domain.entities.Repo
 import com.mac.githubexplorer.domain.entities.RepoDetail
 
 fun RepoNetwork.toRepo() = Repo(
@@ -12,7 +14,16 @@ fun RepoNetwork.toRepo() = Repo(
     htmlUrl = htmlUrl.orEmpty(),
     description = description.orEmpty(),
     language = language.orEmpty(),
-    stargazersCount = stargazersCount ?: -1
+    stargazersCount = stargazersCount ?: -1,
+    owner = ownerNetwork?.toOwner() ?: Owner()
+)
+
+fun OwnerNetwork.toOwner() = Owner(
+    login = login.orEmpty(),
+    id = id ?: -1,
+    avatarUrl = avatarUrl.orEmpty(),
+    gravatarId = gravatarId.orEmpty(),
+    url = url.orEmpty()
 )
 
 fun RepoDB.toRepo() = Repo(
@@ -21,7 +32,8 @@ fun RepoDB.toRepo() = Repo(
     htmlUrl = htmlUrl,
     description = description,
     language = language,
-    stargazersCount = stargazersCount
+    stargazersCount = stargazersCount,
+    owner = Owner()
 )
 
 fun Repo.toRepoDB() = RepoDB(
