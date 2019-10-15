@@ -70,17 +70,17 @@ class RepoDetailActivity : AppCompatActivity() {
 
     private fun bindRepoDetail(repoDetail: RepoDetail) {
         repoDetail.apply {
-            repoName.text = name
-            repoFullName.text = fullName
-            repoDescription.text = description
-            repoLanguage.text = language
-            repoStargazerCount.text = stargazersCount.toString()
-            repoPrivate.text = private.toString()
-            repoCreatedAt.text = createdAt
-            repoWatchersCount.text = watchersCount.toString()
-            repoForks.text = forks.toString()
-            repoOpenIssues.text = openIssues.toString()
-            repoDefaultBranch.text = defaultBranch
+            repoName.text = getString(R.string.repo_name, name)
+            repoFullName.text = getString(R.string.repo_full_name, fullName)
+            repoDescription.text = getString(R.string.repo_description, description)
+            repoLanguage.text = getString(R.string.language, language)
+            repoStargazerCount.text = getString(R.string.stars, stargazersCount.toString())
+            repoPrivate.text = getString(R.string.repo_private, private.toString())
+            repoCreatedAt.text = getString(R.string.repo_created_at, createdAt)
+            repoWatchersCount.text = getString(R.string.repo_watcher_count, watchersCount.toString())
+            repoForks.text = getString(R.string.repo_forks, forks.toString())
+            repoOpenIssues.text = getString(R.string.repo_open_issues, openIssues.toString())
+            repoDefaultBranch.text = getString(R.string.repo_default_branch, defaultBranch)
         }
     }
 
