@@ -5,8 +5,16 @@
     <string name="language">Language: %1s</string>
     <string name="stars">Stars: %1s</string>
 
-    <string name="button_next_activity_label">Next activity</string>
-    <string name="activity2_label">Repo Detail</string>
-    <string name="button_gc_label">force gc</string>
+    <string name="detail_activity_label">Repo Detail</string>
     <string name="button_previous_activity">Previous activity</string>
+    <string name="repo_name">Name: %1s</string>
+    <string name="repo_full_name">Full name: %1s</string>
+    <string name="repo_id">Id: %1s</string>
+    <string name="repo_description">Description: %1s</string>
+    <string name="repo_private">Private: %1s</string>
+    <string name="repo_created_at">Created at: %1s</string>
+    <string name="repo_watcher_count">Watcher count: %1s</string>
+    <string name="repo_forks">Forks: %1s</string>
+    <string name="repo_open_issues">Open issues: %1s</string>
+    <string name="repo_default_branch">Default branch: %1s</string>
 </resources>
