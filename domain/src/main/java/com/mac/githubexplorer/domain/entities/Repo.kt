@@ -6,5 +6,6 @@ data class Repo(
     val htmlUrl: String = "",
     val description: String = "",
     val language: String = "",
-    val stargazersCount: Int = 0
+    val stargazersCount: Int = 0,
+    val owner: Owner
 )
