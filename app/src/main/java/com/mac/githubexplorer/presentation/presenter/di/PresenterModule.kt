@@ -1,6 +1,7 @@
 package com.mac.githubexplorer.presentation.presenter.di
 
 import android.util.Log
+import com.mac.githubexplorer.domain.usecases.GetGitHubRepositoryDetailUseCase
 import com.mac.githubexplorer.domain.usecases.GetRemoteStarredReposUseCase
 import com.mac.githubexplorer.presentation.presenter.viewmodel.ReposViewModelFactory
 import dagger.Module
@@ -10,9 +11,12 @@ import dagger.Provides
 class PresenterModule {
 
     @Provides
-    fun provideViewModelFactory(githubReposUseCase: GetRemoteStarredReposUseCase): ReposViewModelFactory {
+    fun provideViewModelFactory(
+        getRemoteStarredReposUseCase: GetRemoteStarredReposUseCase,
+        getGitHubRepositoryDetailUseCase: GetGitHubRepositoryDetailUseCase
+    ): ReposViewModelFactory {
         Log.d(TAG, "creating an instance of ReposViewModelFactory")
-        return ReposViewModelFactory(githubReposUseCase)
+        return ReposViewModelFactory(getRemoteStarredReposUseCase, getGitHubRepositoryDetailUseCase)
     }
 
     companion object {

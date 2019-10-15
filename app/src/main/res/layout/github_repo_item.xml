@@ -7,7 +7,7 @@
     android:padding="@dimen/padding_normal">
 
     <TextView
-        android:id="@+id/text_repo_name"
+        android:id="@+id/repoName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="@dimen/repo_name_text_size"
@@ -18,7 +18,7 @@
         tools:text="Repo name" />
 
     <TextView
-        android:id="@+id/text_repo_description"
+        android:id="@+id/repoDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ellipsize="end"
@@ -26,28 +26,28 @@
         android:textSize="@dimen/repo_description_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_repo_name"
+        app:layout_constraintTop_toBottomOf="@+id/repoName"
         tools:text="Repo description" />
 
     <TextView
-        android:id="@+id/text_language"
+        android:id="@+id/repoLanguage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_repo_description"
+        app:layout_constraintTop_toBottomOf="@+id/repoDescription"
         tools:text="Language: Java" />
 
     <TextView
-        android:id="@+id/text_stars"
+        android:id="@+id/repoPrivate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textColor="@color/colorAccent"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_language"
-        tools:text="STars: 1234" />
+        app:layout_constraintTop_toBottomOf="@+id/repoLanguage"
+        tools:text="Stars: 1234" />
 </androidx.constraintlayout.widget.ConstraintLayout>

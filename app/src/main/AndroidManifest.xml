@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".presentation.ui.Activity2"
+            android:name=".presentation.ui.RepoDetailActivity"
             android:label="@string/activity2_label" />
         <activity android:name=".presentation.ui.MainActivity">
             <intent-filter>

@@ -9,7 +9,8 @@ import com.mac.githubexplorer.domain.entities.Repo
 import kotlinx.android.synthetic.main.github_repo_item.view.*
 
 
-class GitHubRepoAdapter : RecyclerView.Adapter<GitHubRepoAdapter.GitHubRepoViewHolder>() {
+class RepoListAdapter(private val listListener: GitHubRepoListListener) :
+    RecyclerView.Adapter<RepoListAdapter.GitHubRepoViewHolder>() {
     var gitHubRepos = mutableListOf<Repo>()
         set(value) {
             field.clear()
@@ -18,11 +19,8 @@ class GitHubRepoAdapter : RecyclerView.Adapter<GitHubRepoAdapter.GitHubRepoViewH
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GitHubRepoViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.github_repo_item, parent, false)
-        return GitHubRepoViewHolder(
-            view
-        )
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.github_repo_item, parent, false)
+        return GitHubRepoViewHolder(view, listListener)
     }
 
     override fun getItemCount() = gitHubRepos.size
@@ -31,23 +29,28 @@ class GitHubRepoAdapter : RecyclerView.Adapter<GitHubRepoAdapter.GitHubRepoViewH
         holder.bind(gitHubRepos[position])
     }
 
-    class GitHubRepoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class GitHubRepoViewHolder(itemView: View, private val listListener: GitHubRepoListListener) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(repo: Repo) {
             with(itemView) {
-                text_repo_name.text = repo.name
-                text_repo_description.text = repo.description
-                text_language.text =
+                repoName.text = repo.name
+                repoDescription.text = repo.description
+                repoLanguage.text =
                     String.format(
                         context.getString(R.string.language),
                         repo.language
                     )
-                text_stars.text =
+                repoPrivate.text =
                     String.format(
                         context.getString(R.string.stars),
                         repo.stargazersCount
                     )
+                setOnClickListener { listListener.onRepoSelected(repo) }
             }
         }
+    }
+
+    interface GitHubRepoListListener {
+        fun onRepoSelected(repo: Repo)
     }
 }
