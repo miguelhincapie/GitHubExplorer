@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".presentation.ui.RepoDetailActivity"
-            android:label="@string/activity2_label" />
+            android:label="@string/detail_activity_label" />
         <activity android:name=".presentation.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
