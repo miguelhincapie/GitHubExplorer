@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">GitHubExplorer</string>
+    <string name="app_name">GorillaL Test</string>
     <string name="username_hint">User name</string>
     <string name="search">Search</string>
     <string name="language">Language: %1s</string>
     <string name="stars">Stars: %1s</string>
 
-    <string name="detail_activity_label">Repo Detail</string>
+    <string name="detail_activity_label">Create Post</string>
     <string name="button_previous_activity">Previous activity</string>
     <string name="repo_name">Name: %1s</string>
     <string name="repo_full_name">Full name: %1s</string>
@@ -17,4 +17,8 @@
     <string name="repo_forks">Forks: %1s</string>
     <string name="repo_open_issues">Open issues: %1s</string>
     <string name="repo_default_branch">Default branch: %1s</string>
+
+
+    <string name="share_button_label">Share</string>
+    <string name="whatsonyourmind_button_label">What\'s on your mind?</string>
 </resources>

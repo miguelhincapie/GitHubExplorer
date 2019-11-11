@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/padding_normal"
-    tools:context=".presentation.ui.RepoDetailActivity">
+    tools:context=".presentation.ui.CreatePostActivity">
 
     <TextView
         android:id="@+id/repoName"

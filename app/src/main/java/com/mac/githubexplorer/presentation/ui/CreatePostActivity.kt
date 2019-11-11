@@ -2,8 +2,9 @@ package com.mac.githubexplorer.presentation.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.mac.githubexplorer.R
@@ -20,7 +21,7 @@ import javax.inject.Inject
 const val REPO_NAME = "repo_name_key"
 const val USER_NAME = "user_name_key"
 
-class RepoDetailActivity : AppCompatActivity() {
+class CreatePostActivity : AppCompatActivity() {
 
     @Inject
     lateinit var reposViewModelFactory: ReposViewModelFactory
@@ -31,6 +32,8 @@ class RepoDetailActivity : AppCompatActivity() {
         setContentView(R.layout.repo_detail_activity)
 
         AndroidInjection.inject(this)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         reposViewModel =
             ViewModelProviders.of(this, reposViewModelFactory).get(ReposViewModel::class.java)
@@ -48,10 +51,22 @@ class RepoDetailActivity : AppCompatActivity() {
         }
 
         buttonPreviousActivity.setOnClickListener {
-            intent = Intent(this, MainActivity::class.java)
+            intent = Intent(this, FeedActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.create_post_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == R.id.shareButton) {
+            // TODO share
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun onRepoDetailChanged(response: Data<RepoDetail>) {
@@ -85,6 +100,6 @@ class RepoDetailActivity : AppCompatActivity() {
     }
 
     companion object {
-        private val TAG = RepoDetailActivity::class.java.simpleName
+        private val TAG = CreatePostActivity::class.java.simpleName
     }
 }
