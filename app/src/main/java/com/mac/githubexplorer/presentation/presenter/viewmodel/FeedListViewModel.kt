@@ -4,26 +4,21 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.mac.githubexplorer.domain.entities.Feed
 import com.mac.githubexplorer.domain.usecases.GetFeedListUseCase
-import com.mac.githubexplorer.presentation.model.Data
-import com.mac.githubexplorer.presentation.model.FeedItemViewType
-import com.mac.githubexplorer.presentation.model.Status
-import com.mac.githubexplorer.presentation.model.toFeedItemViewType
+import com.mac.githubexplorer.presentation.model.*
 import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.ObservableSource
-
 
 
 class FeedListViewModel(private val getFeedListUseCase: GetFeedListUseCase) : ViewModel() {
 
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
-    private var feedElements = MutableLiveData<Data<List<FeedItemViewType>>>()
+    private var feedElements = MutableLiveData<Data<List<RecyclerViewType>>>()
 
     fun getFeedList() {
-        val disposable = getFeedListUseCase().flatMap{
-            Observable.fromIterable(it).map { feed: Feed -> feed.toFeedItemViewType() }
+        val disposable = getFeedListUseCase().flatMap {
+            Observable.fromIterable(it).map { feed -> feed.toFeedItemViewType() }.toList()
+                .toObservable()
         }.subscribe(
             { response ->
                 feedElements.value = Data(
@@ -48,5 +43,5 @@ class FeedListViewModel(private val getFeedListUseCase: GetFeedListUseCase) : Vi
         compositeDisposable.clear()
     }
 
-    fun getFeedElementsLiveData(): LiveData<Data<List<FeedItemViewType>>> = feedElements
+    fun getFeedElementsLiveData(): LiveData<Data<List<RecyclerViewType>>> = feedElements
 }

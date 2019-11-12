@@ -32,7 +32,7 @@ class App : Application(), HasAndroidInjector {
 
         val domainComponent = DaggerDomainComponent
             .factory()
-            .build(dataComponent.provideGitHubReposRepository())
+            .build(dataComponent.provideGitHubReposRepository(), dataComponent.provideFeedRepository())
 
         val appComponent = DaggerAppComponent
             .factory()

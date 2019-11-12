@@ -6,19 +6,12 @@ import com.mac.githubexplorer.presentation.ui.FeedActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
-//@Module(subcomponents = [MainActivityComponent::class])
 @Module
 abstract class UiBindingModule {
 
-//    @Binds
-//    @IntoMap
-//    @ClassKey(FeedActivity::class)
-//    abstract fun bindMainActivityInjectorFactory(builder: MainActivityComponent.Factory):
-//            AndroidInjector.Factory<*>
+    @ContributesAndroidInjector(modules = [PresenterModule::class])
+    internal abstract fun feedActivity(): FeedActivity
 
     @ContributesAndroidInjector(modules = [PresenterModule::class])
-    internal abstract fun mainActivity(): FeedActivity
-
-    @ContributesAndroidInjector(modules = [PresenterModule::class])
-    internal abstract fun activity2(): CreatePostActivity
+    internal abstract fun createPostActivity(): CreatePostActivity
 }

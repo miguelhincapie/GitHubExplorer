@@ -7,26 +7,25 @@
     tools:context=".presentation.ui.FeedActivity">
 
 
+    <!--    <Button-->
+    <!--        android:id="@+id/button_search"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="@string/search"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent" />-->
 
-<!--    <Button-->
-<!--        android:id="@+id/button_search"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="@string/search"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent" />-->
-
-<!--    <EditText-->
-<!--        android:id="@+id/edit_text_username"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:ems="10"-->
-<!--        android:hint="@string/username_hint"-->
-<!--        android:importantForAutofill="no"-->
-<!--        android:inputType="textPersonName"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/button_search"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
+    <!--    <EditText-->
+    <!--        android:id="@+id/edit_text_username"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:ems="10"-->
+    <!--        android:hint="@string/username_hint"-->
+    <!--        android:importantForAutofill="no"-->
+    <!--        android:inputType="textPersonName"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/button_search"-->
+    <!--        app:layout_constraintStart_toStartOf="parent" />-->
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -65,16 +64,10 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/whatsonyourmindButton"
+            android:id="@+id/whatsOnYourMindButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="16dp"
-            android:background="@color/colorAccent"
-            android:paddingTop="@dimen/repo_description_text_size"
-            android:paddingBottom="@dimen/repo_description_text_size"
-            android:text="@string/whatsonyourmind_button_label"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="@string/whatsonyourmind_button_label" />
     </LinearLayout>
 
 

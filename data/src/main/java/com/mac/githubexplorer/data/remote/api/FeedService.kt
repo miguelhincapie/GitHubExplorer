@@ -5,6 +5,6 @@ import io.reactivex.Observable
 import retrofit2.http.GET
 
 interface FeedService {
-    @GET("/feed")
+    @GET("feed")
     fun getFeedList(): Observable<List<FeedNetwork>>
 }

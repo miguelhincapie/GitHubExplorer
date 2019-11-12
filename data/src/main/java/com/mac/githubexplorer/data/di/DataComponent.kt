@@ -1,5 +1,6 @@
 package com.mac.githubexplorer.data.di
 
+import com.mac.githubexplorer.domain.interfaces.FeedRepository
 import com.mac.githubexplorer.domain.interfaces.GitHubReposRepository
 import dagger.Component
 
@@ -13,4 +14,5 @@ interface DataComponent {
     }
 
     fun provideGitHubReposRepository(): GitHubReposRepository
+    fun provideFeedRepository(): FeedRepository
 }
