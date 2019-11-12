@@ -12,8 +12,4 @@ class PresenterModule {
     fun provideFeedViewModelFactory(getFeedListUseCase: GetFeedListUseCase): FeedListViewModelFactory {
         return FeedListViewModelFactory(getFeedListUseCase)
     }
-
-    companion object {
-        private const val TAG = "dagger-Presentation"
-    }
 }
