@@ -22,6 +22,6 @@ class RetrofitBuilder(private val okHttpClient: OkHttpClient) {
     }
 
     companion object {
-        private const val GITHUB_BASE_URL = "http://gl-endpoint.herokuapp.com/"
+        private const val GITHUB_BASE_URL = "https://gl-endpoint.herokuapp.com/"
     }
 }

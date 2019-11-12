@@ -39,6 +39,8 @@ dependencies {
     api "com.squareup.retrofit2:retrofit:$retrofit2_version"
     api "com.squareup.retrofit2:adapter-rxjava2:$retrofit2_version"
     api "com.squareup.retrofit2:converter-gson:$retrofit2_version"
+    //  Loggin Network Calls
+    api "com.squareup.okhttp3:logging-interceptor:3.10.0"
     // Room
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
