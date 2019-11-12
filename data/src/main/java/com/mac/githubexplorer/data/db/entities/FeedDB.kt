@@ -5,19 +5,19 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 // Database DTO
-@Entity(tableName = "Repo")
-data class RepoDB(
+@Entity(tableName = "Feed")
+data class FeedDB(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     val id: Int,
-    @ColumnInfo(name = "name")
+    @ColumnInfo(name = "first_name")
     val name: String,
-    @ColumnInfo(name = "html_url")
+    @ColumnInfo(name = "last_name")
     val htmlUrl: String,
-    @ColumnInfo(name = "description")
+    @ColumnInfo(name = "post_body")
     val description: String,
-    @ColumnInfo(name = "language")
+    @ColumnInfo(name = "unix_timestamp")
     val language: String,
-    @ColumnInfo(name = "stargazers_count")
-    val stargazersCount: Int
+    @ColumnInfo(name = "image")
+    val stargazersCount: String
 )

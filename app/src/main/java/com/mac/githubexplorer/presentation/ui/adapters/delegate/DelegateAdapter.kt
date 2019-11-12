@@ -1,4 +1,4 @@
-package com.mac.githubexplorer.presentation.ui.adapters
+package com.mac.githubexplorer.presentation.ui.adapters.delegate
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

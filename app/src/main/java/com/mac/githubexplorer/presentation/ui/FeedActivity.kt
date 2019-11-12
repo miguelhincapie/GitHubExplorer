@@ -14,7 +14,7 @@ import com.mac.githubexplorer.presentation.model.utils.observe
 import com.mac.githubexplorer.presentation.presenter.viewmodel.FeedListViewModel
 import com.mac.githubexplorer.presentation.presenter.viewmodel.FeedListViewModelFactory
 import com.mac.githubexplorer.presentation.ui.adapters.FeedAdapter
-import com.mac.githubexplorer.presentation.ui.adapters.FeedDelegateAdapter
+import com.mac.githubexplorer.presentation.ui.adapters.delegate.FeedDelegateAdapter
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject

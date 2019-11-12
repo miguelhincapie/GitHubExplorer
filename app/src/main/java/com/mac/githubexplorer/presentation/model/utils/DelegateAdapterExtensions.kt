@@ -3,7 +3,7 @@ package com.mac.githubexplorer.presentation.model.utils
 import androidx.collection.SparseArrayCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.mac.githubexplorer.presentation.model.RecyclerViewType
-import com.mac.githubexplorer.presentation.ui.adapters.DelegateAdapter
+import com.mac.githubexplorer.presentation.ui.adapters.delegate.DelegateAdapter
 
 @Suppress("UNCHECKED_CAST")
 fun <E : DelegateAdapter<RecyclerView.ViewHolder, RecyclerViewType>> SparseArrayCompat<E>.appendDelegate(

@@ -4,6 +4,7 @@ import android.view.ViewGroup
 import androidx.collection.SparseArrayCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.mac.githubexplorer.presentation.model.RecyclerViewType
+import com.mac.githubexplorer.presentation.ui.adapters.delegate.DelegateAdapter
 
 open class BaseAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 

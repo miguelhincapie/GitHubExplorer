@@ -1,4 +1,4 @@
-package com.mac.githubexplorer.presentation.ui.adapters
+package com.mac.githubexplorer.presentation.ui.adapters.delegate
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -15,7 +15,9 @@ class FeedDelegateAdapter(private val feedListListener: OnFeedItemListListener) 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup): ViewHolder {
-        return ViewHolder(parent)
+        return ViewHolder(
+            parent
+        )
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, viewType: FeedItemViewType) {
