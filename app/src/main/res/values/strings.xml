@@ -5,8 +5,6 @@
     <string name="language">Language: %1s</string>
     <string name="stars">Stars: %1s</string>
 
-    <string name="button_next_activity_label">Next activity</string>
-    <string name="activity2_label">Activity2</string>
-    <string name="button_gc_label">force gc</string>
-    <string name="button_previous_activity">Previous activity</string>
+    <string name="empty_repos_description">No repos found.</string>
+    <string name="loading">Loading</string>
 </resources>
