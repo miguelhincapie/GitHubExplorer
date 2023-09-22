@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GitHubExplorer</string>
+    <string name="username_hint">Nombre de usuario</string>
+    <string name="search">Buscar</string>
+    <string name="language">Idioma: %1s</string>
+    <string name="stars">Estrellas</string>
+    <string name="empty_repos_description">No se encontraron repos.</string>
+    <string name="loading">Cargando</string>
+</resources>

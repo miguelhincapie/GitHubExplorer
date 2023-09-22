@@ -1,16 +1,8 @@
 package com.mac.githubexplorer.domain.usecases
 
-import com.mac.githubexplorer.domain.entities.Repo
-import com.mac.githubexplorer.domain.interfaces.GitHubReposRepository
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import com.mac.githubexplorer.domain.model.Repo
+import kotlinx.coroutines.flow.Flow
 
-class GetRemoteStarredReposUseCase(private val gitHubRepository: GitHubReposRepository) {
-
-    operator fun invoke(userName: String): Observable<List<Repo>> {
-        return gitHubRepository.getStarredRepos(userName)
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-    }
+interface GetRemoteStarredReposUseCase {
+    operator fun invoke(userName: String): Flow<List<Repo>?>
 }
