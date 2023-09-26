@@ -1,34 +1,52 @@
 @startuml
 node "UI layer    " {
     package "app" {
-        rectangle "ui" as ui #DAE8FC
-        rectangle "view model" as viewmodel #D5E8D4
+        rectangle "activity" as activity #DAE8FC
+        rectangle "compose" as compose #DAE8FC
+        rectangle "UImapper" as uimapper #DAE8FC
+        rectangle "Model" as uimodel #DAE8FC
+        rectangle "Material3 theme" as theme #DAE8FC
+        rectangle "DI" as uiDI #DAE8FC
+        rectangle "view model" as viewmodel #DAE8FC
     }
 }
 
 node "Domain layer" as domainlayer{
     rectangle "use cases" as usecases #FFE6CC
-    rectangle "entities" as entities #FFF2CC
-    rectangle "interfaces" as interfaces #FFE6CC
+    rectangle "DI" as domainDi #FFE6CC
+    rectangle "model" as model #FFF2CC
+    rectangle "repositories def" as repoDef #FFE6CC
 }
 
 node "Data layer" as datalayer {
-    rectangle "repositories" as repositories #D5E8D4
-    database "db (room)" as db {
-        rectangle "dao" as dao #DAE8FC
-
+    rectangle "repositories Impl" as repoImpl #D5E8D4
+    rectangle "DI" as dataDI #D5E8D4
+    package "local source" as local_source {
+        rectangle "local model (entity)" as data_local_model #D5E8D4
+        rectangle "mapper" as data_local_mapper #D5E8D4
+        database "db (room)" as db {
+            rectangle "dao" as dao #DAE8FC
+        }
+        database "shared Preferences" as sharedPreferences
     }
-    package "remote" as remote {
+    package "remote source" as remote_source {
+        rectangle "remote model (DTO)" as data_remote_model #D5E8D4
+        rectangle "mapper" as dataMapper #D5E8D4
         rectangle "api" as api #DAE8FC
-
     }
 }
 
-ui --> viewmodel
+activity --> compose
+compose --> theme
+compose --> uimodel
+compose --> viewmodel
+viewmodel --> uimapper
+uimapper --> uimodel
 viewmodel --> usecases
-usecases --> entities
-interfaces -up-> entities
-repositories -up-> interfaces
-remote -up-> repositories
-db -up-> repositories
+usecases --> model
+usecases --> repoDef
+repoDef -up-> model
+repoImpl -up-> repoDef
+remote_source -up-> repoImpl
+local_source -up-> repoImpl
 @enduml
