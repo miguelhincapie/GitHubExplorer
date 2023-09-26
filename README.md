@@ -1,44 +1,25 @@
 # GitHubExplorer
-[![Kotlin Version](https://img.shields.io/badge/kotlin-1.3.50-blue.svg)](http://kotlinlang.org/)
+[![Kotlin Version](https://img.shields.io/badge/kotlin-1.9.0-blue.svg)](http://kotlinlang.org/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
-Personal project for a multi-module simple app following MVVM + Clean architecture.
-
-## What you can found in branches
-* master
-* asdf
-* qwer
+Android showcase project for a multi-module simple app following MVVM + Clean architecture.
 
 ## Architecture
 <img width="958" height="1096" src="https://github.com/miguelhincapie/GitHubExplorer/blob/master/docs/diagrams/Clean+MVVM.png">
-<img src="https://github.com/miguelhincapie/GitHubExplorer/blob/master/docs/diagrams/architecture.svg">
 
 ### Package diagram
 <img width="515" height="570" src="https://github.com/miguelhincapie/GitHubExplorer/blob/master/docs/diagrams/package.png">
 
-### Presentation layer
-
-
-### Domain layer
-
-
-### Data layer
-
-
-## Additional patterns
-
-
+## Patterns
+### MVVM + Clean architecture
+### SOLID
 ### Repository
-
-
-### Delegate
-
 
 ## Languages, libraries and tools used
 * [Kotlin](https://kotlinlang.org/)
-* [RxAndroid](https://github.com/ReactiveX/RxAndroid)
-* [RxKotlin](https://github.com/ReactiveX/RxKotlin)
-* [Dagger 2 (2.24)](https://github.com/google/dagger)
+* [Jetpack Compose](https://developer.android.com/jetpack/compose)
+* [Coroutines Android](https://developer.android.com/kotlin/coroutines)
+* [Hilt](https://developer.android.com/training/dependency-injection/hilt-android)
 * [Retrofit](https://github.com/square/retrofit)
 * [OkHttp](https://github.com/square/okhttp/)
 * [Gson](https://github.com/google/gson)
