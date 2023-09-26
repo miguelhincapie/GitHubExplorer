@@ -1,27 +1,28 @@
 @startwbs
 + GitHubExplorer
  + app
-  + di
+  + activity
+  + compose
+  + mapper
   + model
-  + presenter
-   + di
-   + viewmodel
-  + ui
-   + di
-  + utils
+  + theme
+  + viewmodel
  + domain
   + di
-  + entities
-  + interfaces
+  + model
   + usecases
+  + repo def
  + data
-  + db
-   + dao
-   + entities
   + di
-  + remote
-   + api
-   + dtos
-  + repositories
+  + repositories Impl
    + datasources
+   + local
+    + entities
+    + mapper
+    + db
+    + sharedpreferences
+   + remote
+    + api
+    + mapper
+    + dto
 @endwbs
