@@ -10,7 +10,8 @@ Personal project for a multi-module simple app following MVVM + Clean architectu
 * qwer
 
 ## Architecture
-<img src="https://github.com/miguelhincapie/GitHubExplorer/blob/master/docs/diagrams/architecture.svg"><img width="265" height="714" src="https://github.com/miguelhincapie/GitHubExplorer/blob/master/docs/diagrams/dependencies.png">
+<img width="958" height="1096" src="https://github.com/miguelhincapie/GitHubExplorer/blob/master/docs/diagrams/Clean+MVVM.png">
+<img src="https://github.com/miguelhincapie/GitHubExplorer/blob/master/docs/diagrams/architecture.svg">
 
 ### Package diagram
 <img width="515" height="570" src="https://github.com/miguelhincapie/GitHubExplorer/blob/master/docs/diagrams/package.png">
