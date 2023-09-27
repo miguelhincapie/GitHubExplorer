@@ -1,13 +1,11 @@
 package com.mac.githubexplorer.viewmodel
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mac.githubexplorer.domain.usecases.GetRemoteStarredReposUseCase
 import com.mac.githubexplorer.mapper.ReposUIMapper
 import com.mac.githubexplorer.model.RepoListState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,8 +19,7 @@ import javax.inject.Inject
 class ReposViewModel
 @Inject constructor(
     private val getRemoteStarredReposUseCase: GetRemoteStarredReposUseCase,
-    private val reposUIMapper: ReposUIMapper,
-    @ApplicationContext private val context: Context
+    private val reposUIMapper: ReposUIMapper
 ) : ViewModel() {
 
     private val _state: MutableStateFlow<RepoListState> = MutableStateFlow(RepoListState.Empty)
@@ -34,21 +31,14 @@ class ReposViewModel
             return
         }
         viewModelScope.launch(context = Dispatchers.IO) {
-            getRemoteStarredReposUseCase(userName)
+            getRemoteStarredReposUseCase.invoke(userName)
                 .onStart { _state.value = RepoListState.Loading }
                 .mapLatest {
-                    reposUIMapper.mapToUI(it, context)
+                    reposUIMapper.mapToUI(it)
                 }
                 .collect {
                     _state.value = it
                 }
-//            { error ->
-//                Log.d(TAG, "On Error Called")
-//                starredRepositories.value = Data(
-//                    responseType = Status.ERROR,
-//                    error = error.message
-//                )
-//            }
         }
     }
 }
