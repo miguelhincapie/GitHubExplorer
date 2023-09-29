@@ -1,4 +1,4 @@
-package com.mac.githubexplorer.compose
+package com.mac.githubexplorer.compose.repolist
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,24 +24,23 @@ import androidx.constraintlayout.compose.Dimension
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.mac.githubexplorer.R
+import com.mac.githubexplorer.compose.common.EmptyView
+import com.mac.githubexplorer.compose.common.LoadingView
 import com.mac.githubexplorer.model.RepoListState
 import com.mac.githubexplorer.model.RepoRowUI
-import com.mac.githubexplorer.theme.GitHubExplorerTheme
 import com.mac.githubexplorer.viewmodel.ReposViewModel
 
 @Composable
 internal fun GitHubReposScreen(
     viewModel: ReposViewModel = hiltViewModel()
 ) {
-    GitHubExplorerTheme {
-        val state by viewModel.state.collectAsStateWithLifecycle()
-        val userName = remember { mutableStateOf("") }
+    val state by viewModel.state.collectAsStateWithLifecycle()
+    val userName = remember { mutableStateOf("") }
 
-        GitHubReposView(
-            state,
-            userName
-        ) { viewModel.fetchStarredRepositories(it) }
-    }
+    GitHubReposView(
+        state,
+        userName
+    ) { viewModel.fetchStarredRepositories(it) }
 }
 
 @Composable

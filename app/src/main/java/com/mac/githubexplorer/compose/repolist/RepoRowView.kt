@@ -1,4 +1,4 @@
-package com.mac.githubexplorer.compose
+package com.mac.githubexplorer.compose.repolist
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth

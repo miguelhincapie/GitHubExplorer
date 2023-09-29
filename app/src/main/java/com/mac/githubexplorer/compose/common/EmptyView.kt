@@ -1,9 +1,8 @@
-package com.mac.githubexplorer.compose
+package com.mac.githubexplorer.compose.common
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -16,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.mac.githubexplorer.R
 
 @Composable
-internal fun LoadingView(
+internal fun EmptyView(
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -26,11 +25,10 @@ internal fun LoadingView(
     ) {
         Image(
             modifier = Modifier.wrapContentSize(),
-            alignment = Alignment.Center,
-            painter = painterResource(id = R.drawable.ic_loading),
-            contentDescription = stringResource(id = R.string.loading)
+            painter = painterResource(id = R.drawable.ic_empty),
+            contentDescription = stringResource(id = R.string.empty_repos_description)
         )
-        Text(text = stringResource(id = R.string.loading))
+        Text(text = stringResource(id = R.string.empty_repos_description))
     }
 }
 
@@ -38,6 +36,6 @@ internal fun LoadingView(
 @Preview(
     device = Devices.PIXEL_4
 )
-internal fun LoadingViewPreview() {
-    LoadingView(Modifier.fillMaxSize())
+internal fun EmptyViewPreview() {
+    EmptyView()
 }
