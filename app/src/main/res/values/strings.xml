@@ -5,6 +5,12 @@
     <string name="language">Language: %1s</string>
     <string name="stars">Stars: %1s</string>
 
-    <string name="empty_repos_description">No repos found.</string>
+    <string name="empty_repos_description">No repos found</string>
     <string name="loading">Loading</string>
+    <string name="user_avatar">User Avatar</string>
+    <string name="no_user_found">No GitHub user found</string>
+    <string name="usage_guide">Enter a Github user then tap on search button</string>
+    <string name="starred_button">Starred projects</string>
+    <string name="followers">%1s followers</string>
+    <string name="following">%1s following</string>
 </resources>

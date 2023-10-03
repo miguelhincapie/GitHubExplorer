@@ -2,6 +2,8 @@ package com.mac.githubexplorer.domain.di
 
 import com.mac.githubexplorer.domain.usecases.GetRemoteStarredReposUseCase
 import com.mac.githubexplorer.domain.usecases.GetRemoteStarredReposUseCaseImpl
+import com.mac.githubexplorer.domain.usecases.GetUserUseCase
+import com.mac.githubexplorer.domain.usecases.GetUserUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -17,4 +19,10 @@ abstract class DomainModuleBinds {
     abstract fun bindGetRemoteStarredReposUseCase(
         getRemoteStarredReposUseCase: GetRemoteStarredReposUseCaseImpl
     ): GetRemoteStarredReposUseCase
+
+    @Binds
+    @ViewModelScoped
+    abstract fun bindGetUserUseCase(
+        getUserUseCase: GetUserUseCaseImpl
+    ): GetUserUseCase
 }

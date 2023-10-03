@@ -8,7 +8,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -27,14 +29,18 @@ class DataModuleProvides {
     }
 
     @Provides
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideInterceptor(): Interceptor {
+        return HttpLoggingInterceptor().apply {
+            setLevel(HttpLoggingInterceptor.Level.BASIC)
+        }
+    }
+
+    @Provides
+    fun provideOkHttpClient(
+        interceptor: Interceptor
+    ): OkHttpClient {
         return OkHttpClient.Builder().apply {
-//            if (BuildConfig.BUILD_TYPE != "debug") {
-//                okHttpBuilder.addInterceptor { chain ->
-//                    println(chain.request())
-//                    chain.proceed(chain.request())
-//                }
-//            }
+            addInterceptor(interceptor)
         }.build()
     }
 

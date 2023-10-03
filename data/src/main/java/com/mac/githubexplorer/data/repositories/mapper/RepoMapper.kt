@@ -1,10 +1,10 @@
 package com.mac.githubexplorer.data.repositories.mapper
 
 import com.mac.githubexplorer.data.repositories.local.db.entities.RepoDB
-import com.mac.githubexplorer.data.repositories.remote.dto.RepoNetwork
+import com.mac.githubexplorer.data.repositories.remote.dto.RepoDTO
 import com.mac.githubexplorer.domain.model.Repo
 
-fun RepoNetwork.toRepo() = Repo(
+fun RepoDTO.toDomain() = Repo(
     id = id ?: -1,
     name = name.orEmpty(),
     htmlUrl = htmlUrl.orEmpty(),
@@ -13,7 +13,7 @@ fun RepoNetwork.toRepo() = Repo(
     stargazersCount = stargazersCount ?: -1
 )
 
-fun RepoDB.toRepo() = Repo(
+fun RepoDB.toDomain() = Repo(
     id = id,
     name = name,
     htmlUrl = htmlUrl,

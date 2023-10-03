@@ -3,7 +3,7 @@ package com.mac.githubexplorer.data.repositories.remote.dto
 import com.google.gson.annotations.SerializedName
 
 // Network DTO
-data class RepoNetwork(
+data class RepoDTO(
     @SerializedName("id")
     val id: Int?,
     @SerializedName("name")
