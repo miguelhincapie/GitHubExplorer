@@ -3,6 +3,7 @@ package com.mac.githubexplorer.data.di
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.mac.githubexplorer.data.interceptor.GitHubAuthInterceptor
 import com.mac.githubexplorer.data.repositories.remote.api.GitHubReposService
 import dagger.Module
 import dagger.Provides
@@ -28,19 +29,28 @@ class DataModuleProvides {
             .create()
     }
 
+    @LogInterceptor
     @Provides
-    fun provideInterceptor(): Interceptor {
+    fun provideLogInterceptor(): Interceptor {
         return HttpLoggingInterceptor().apply {
             setLevel(HttpLoggingInterceptor.Level.BASIC)
         }
     }
 
+    @AuthInterceptor
+    @Provides
+    fun provideAuthInterceptor(): Interceptor {
+        return GitHubAuthInterceptor()
+    }
+
     @Provides
     fun provideOkHttpClient(
-        interceptor: Interceptor
+        @AuthInterceptor authInterceptor: Interceptor,
+        @LogInterceptor logInterceptor: Interceptor
     ): OkHttpClient {
         return OkHttpClient.Builder().apply {
-            addInterceptor(interceptor)
+            addInterceptor(authInterceptor)
+            addInterceptor(logInterceptor)
         }.build()
     }
 

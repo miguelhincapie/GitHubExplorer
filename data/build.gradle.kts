@@ -1,3 +1,6 @@
+import org.jetbrains.kotlin.konan.properties.Properties
+import java.io.FileInputStream
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -17,6 +20,13 @@ android {
     }
 
     buildTypes {
+        debug {
+            val p = Properties().apply {
+                load(FileInputStream(File(rootProject.rootDir, "local.properties")))
+            }
+            val personalAccessToken: String = p.getProperty("GITHUB_KEY") ?: ""
+            buildConfigField("String", "GITHUB_KEY", "\"$personalAccessToken\"")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -31,6 +41,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+    }
+    buildFeatures {
+        buildConfig = true
     }
 }
 
