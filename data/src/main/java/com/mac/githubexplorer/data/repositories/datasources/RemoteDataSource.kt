@@ -1,8 +1,9 @@
 package com.mac.githubexplorer.data.repositories.datasources
 
 import com.mac.githubexplorer.domain.model.Repo
-import kotlinx.coroutines.flow.Flow
+import com.mac.githubexplorer.domain.model.User
 
 interface RemoteDataSource {
-    fun getStarredRepos(userName: String): Flow<List<Repo>?>
+    suspend fun getUser(userName: String): User?
+    suspend fun getStarredRepos(userName: String): List<Repo>?
 }

@@ -1,4 +1,4 @@
-package com.mac.githubexplorer.compose.common
+package com.mac.githubexplorer.home.compose
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -25,9 +26,8 @@ import com.mac.githubexplorer.theme.GitHubExplorerTheme
 import com.mac.githubexplorer.theme.seed
 
 @Composable
-internal fun EmptyView(
-    modifier: Modifier = Modifier,
-    text: String = stringResource(id = R.string.empty_repos_description)
+internal fun NoUserSelectedView(
+    modifier: Modifier
 ) {
     GitHubExplorerTheme {
         Column(
@@ -36,17 +36,23 @@ internal fun EmptyView(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                modifier = Modifier.size(220.dp),
-                alignment = Alignment.Center,
-                painter = painterResource(id = R.drawable.emoji_dizzy_fill),
-                contentDescription = text,
+                modifier = Modifier
+                    .size(220.dp)
+                    .align(Alignment.CenterHorizontally)
+                    .padding(top = 30.dp),
+                painter = painterResource(id = R.drawable.github),
+                contentDescription = stringResource(R.string.user_avatar),
                 colorFilter = if (isSystemInDarkTheme().not()) {
                     ColorFilter.tint(seed)
                 } else null
             )
+
             Text(
-                modifier = Modifier.padding(top = 20.dp),
-                text = text,
+                modifier = Modifier
+                    .padding(top = 30.dp)
+                    .align(Alignment.CenterHorizontally),
+                text = stringResource(id = R.string.usage_guide),
+                textAlign = TextAlign.Center,
                 style = MaterialTheme.typography.titleLarge.copy(color = MaterialTheme.colorScheme.secondary)
             )
         }
@@ -58,8 +64,10 @@ internal fun EmptyView(
     device = Devices.PIXEL_4,
     showBackground = true
 )
-internal fun EmptyViewPreview() {
-    EmptyView(Modifier.fillMaxSize())
+private fun NoUserSelectedViewPreview() {
+    NoUserSelectedView(
+        modifier = Modifier.fillMaxSize()
+    )
 }
 
 @Composable
@@ -68,6 +76,8 @@ internal fun EmptyViewPreview() {
     showBackground = true,
     uiMode = Configuration.UI_MODE_NIGHT_YES
 )
-private fun EmptyViewPreviewDark() {
-    EmptyView(Modifier.fillMaxSize())
+private fun NoUserSelectedViewPreviewDark() {
+    NoUserSelectedView(
+        modifier = Modifier.fillMaxSize()
+    )
 }

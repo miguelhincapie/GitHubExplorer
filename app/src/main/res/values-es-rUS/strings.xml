@@ -5,6 +5,12 @@
     <string name="search">Buscar</string>
     <string name="language">Idioma: %1s</string>
     <string name="stars">Estrellas</string>
-    <string name="empty_repos_description">No se encontraron repos.</string>
+    <string name="empty_repos_description">No se encontraron repos</string>
     <string name="loading">Cargando</string>
+    <string name="user_avatar">Avatar del usuario</string>
+    <string name="no_user_found">No se encontro el usuario de GitHub</string>
+    <string name="usage_guide">Ingrese el nombre de usuario de GitHub y luego presione buscar</string>
+    <string name="starred_button">Projectos favoritos</string>
+    <string name="followers">%1s seguidores</string>
+    <string name="following">%1s siguiendo</string>
 </resources>
