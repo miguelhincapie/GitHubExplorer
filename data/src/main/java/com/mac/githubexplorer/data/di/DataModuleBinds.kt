@@ -1,8 +1,10 @@
 package com.mac.githubexplorer.data.di
 
+import com.mac.githubexplorer.data.image.GlideImpl
 import com.mac.githubexplorer.data.repositories.GitHubReposRepositoryImpl
 import com.mac.githubexplorer.data.repositories.datasources.RemoteDataSource
 import com.mac.githubexplorer.data.repositories.remote.GitHubRemoteDataSource
+import com.mac.githubexplorer.domain.image.ImageFramework
 import com.mac.githubexplorer.domain.repo.GitHubReposRepository
 import dagger.Binds
 import dagger.Module
@@ -19,4 +21,7 @@ abstract class DataModuleBinds {
 
     @Binds
     abstract fun bindGitHubRepoRepository(gitHubReposRepository: GitHubReposRepositoryImpl): GitHubReposRepository
+
+    @Binds
+    abstract fun bindImageFramework(glideImpl: GlideImpl): ImageFramework
 }

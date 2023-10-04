@@ -50,7 +50,6 @@ android {
 dependencies {
 
     implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -73,4 +72,8 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.48")
     ksp("com.google.dagger:dagger-compiler:2.48")
     ksp("com.google.dagger:hilt-compiler:2.48")
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("com.github.bumptech.glide:okhttp3-integration:4.16.0")
 }

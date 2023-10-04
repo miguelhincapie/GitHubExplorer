@@ -36,7 +36,7 @@ internal fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    val userName = remember { mutableStateOf("") }
+    val userName = remember { mutableStateOf("miguelhincapie") }
 
     HomeView(
         state = state,

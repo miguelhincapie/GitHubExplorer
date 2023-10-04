@@ -1,6 +1,8 @@
 package com.mac.githubexplorer.home.mapper
 
 import android.content.Context
+import android.graphics.drawable.Drawable
+import androidx.appcompat.content.res.AppCompatResources
 import com.mac.githubexplorer.R
 import com.mac.githubexplorer.domain.model.User
 import com.mac.githubexplorer.home.model.HomeState
@@ -13,16 +15,16 @@ import javax.inject.Inject
 class UserUIMapper @Inject constructor(
     @ApplicationContext private val context: Context
 ) {
-    fun mapToUI(domainModel: User?): HomeState {
+    fun mapToUI(domainModel: User?, avatar: Drawable?): HomeState {
         return when (domainModel) {
             null -> HomeState.NoUserFound
-            else -> HomeState.ShowUserInfo(domainToUI(domainModel))
+            else -> HomeState.ShowUserInfo(domainToUI(domainModel, avatar))
         }
     }
 
-    private fun domainToUI(user: User): UserUI {
+    private fun domainToUI(user: User, avatar: Drawable?): UserUI {
         return UserUI(
-            avatar = context.getDrawable(R.drawable.ic_empty)!!,
+            avatar = avatar ?: AppCompatResources.getDrawable(context, R.drawable.ic_empty)!!,
             visualName = user.name,
             accountName = user.login,
             description = user.bio,
