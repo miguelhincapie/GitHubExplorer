@@ -48,13 +48,6 @@ android {
 }
 
 dependencies {
-
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("com.google.android.material:material:1.9.0")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
     // Dependency
     implementation(project(mapOf("path" to ":domain")))
     // Retrofit2
@@ -66,12 +59,14 @@ dependencies {
     // kapt("androidx.room:room-compiler:2.5.2")
     testImplementation("androidx.room:room-testing:2.5.2")
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
-
     implementation("com.google.dagger:hilt-android:2.48")
     ksp("com.google.dagger:dagger-compiler:2.48")
     ksp("com.google.dagger:hilt-compiler:2.48")
+
+    // Test
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test.ext:junit:1.1.5")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     // Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
