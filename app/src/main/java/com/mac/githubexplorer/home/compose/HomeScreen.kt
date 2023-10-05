@@ -24,8 +24,8 @@ import androidx.constraintlayout.compose.Dimension
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.mac.githubexplorer.R
-import com.mac.githubexplorer.compose.common.EmptyView
-import com.mac.githubexplorer.compose.common.LoadingView
+import com.mac.githubexplorer.commons.compose.EmptyView
+import com.mac.githubexplorer.commons.compose.LoadingView
 import com.mac.githubexplorer.home.model.HomeState
 import com.mac.githubexplorer.home.viewmodel.HomeViewModel
 import com.mac.githubexplorer.theme.GitHubExplorerTheme

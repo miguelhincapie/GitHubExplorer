@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.mac.githubexplorer"
-        minSdk = 24
+        minSdk = 28
         versionCode = 1
         versionName = "1.0"
 

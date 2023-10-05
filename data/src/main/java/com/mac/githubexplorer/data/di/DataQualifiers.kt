@@ -13,11 +13,3 @@ annotation class AuthInterceptor
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
 annotation class LogInterceptor
-
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
-annotation class RemoteDataSourceQualifier
-
-@Qualifier
-@Retention(AnnotationRetention.BINARY)
-annotation class LocalDataSourceQualifier

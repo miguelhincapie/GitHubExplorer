@@ -4,7 +4,7 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.mac.githubexplorer.data.interceptor.GitHubAuthInterceptor
-import com.mac.githubexplorer.data.repositories.remote.api.GitHubReposService
+import com.mac.githubexplorer.data.repositories.commons.remote.api.GitHubReposService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
