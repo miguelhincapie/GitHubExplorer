@@ -2,6 +2,8 @@ package com.mac.githubexplorer.domain.di
 
 import com.mac.githubexplorer.domain.usecases.GetRemoteStarredReposUseCase
 import com.mac.githubexplorer.domain.usecases.GetRemoteStarredReposUseCaseImpl
+import com.mac.githubexplorer.domain.usecases.GetRepoDetailUseCase
+import com.mac.githubexplorer.domain.usecases.GetRepoDetailUseCaseImpl
 import com.mac.githubexplorer.domain.usecases.GetUserAvatarUseCase
 import com.mac.githubexplorer.domain.usecases.GetUserAvatarUseCaseImpl
 import com.mac.githubexplorer.domain.usecases.GetUserUseCase
@@ -33,4 +35,10 @@ abstract class DomainModuleBinds {
     abstract fun bindGetUserAvatarUseCase(
         getUserAvatarUseCase: GetUserAvatarUseCaseImpl
     ): GetUserAvatarUseCase
+
+    @Binds
+    @ViewModelScoped
+    abstract fun bindGetRepoDetailUseCase(
+        getRepoDetailUseCase: GetRepoDetailUseCaseImpl
+    ): GetRepoDetailUseCase
 }

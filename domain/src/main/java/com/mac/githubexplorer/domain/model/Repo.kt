@@ -13,5 +13,6 @@ data class Repo(
     val homepage: String,
     val license: License?,
     val topics: List<String>,
-    val forks: Int
+    val forks: Int,
+    val ownerLogin: String
 )

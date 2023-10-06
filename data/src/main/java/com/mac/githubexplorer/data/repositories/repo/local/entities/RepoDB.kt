@@ -34,5 +34,7 @@ data class RepoDB(
     @ColumnInfo("topics")
     val topics: List<String>?,
     @ColumnInfo("forks")
-    val forks: Int?
+    val forks: Int?,
+    @ColumnInfo("owner_login")
+    val ownerLogin: String?
 )

@@ -14,4 +14,10 @@ interface GitHubReposService {
 
     @GET("users/{user}/starred")
     suspend fun getStarredRepositories(@Path("user") userName: String): Response<List<RepoDTO>>
+
+    @GET("repos/{owner}/{repo}")
+    suspend fun getRepoDetail(
+        @Path("owner") userName: String,
+        @Path("repo") repoId: String
+    ): Response<RepoDTO>
 }

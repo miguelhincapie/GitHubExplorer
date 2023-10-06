@@ -14,7 +14,8 @@ import com.mac.githubexplorer.commons.navigation.DestinationsArg.REPO_ID
 import com.mac.githubexplorer.commons.navigation.DestinationsArg.USER_ID
 import com.mac.githubexplorer.home.compose.HomeScreen
 import com.mac.githubexplorer.repodetail.compose.RepoDetailScreen
-import com.mac.githubexplorer.starredrepos.compose.GitHubReposScreen
+import com.mac.githubexplorer.repodetail.viewmodel.RepoDetailViewModel
+import com.mac.githubexplorer.starredrepos.compose.ReposScreen
 import com.mac.githubexplorer.starredrepos.viewmodel.ReposViewModel
 import com.mac.githubexplorer.theme.GitHubExplorerTheme
 
@@ -47,11 +48,11 @@ fun GitHubNavGraph(
             ) {
                 val userId = it.arguments?.getString(USER_ID)!!
                 val viewModel = hiltViewModel<ReposViewModel>()
-                GitHubReposScreen(
+                ReposScreen(
                     user = userId,
                     viewModel = viewModel,
-                    onRepoTapped = { repoId ->
-                        navActions.navigateToRepoDetail(userId, repoId)
+                    onRepoTapped = { owner, repoId ->
+                        navActions.navigateToRepoDetail(owner, repoId)
                     }
                 )
             }
@@ -62,7 +63,14 @@ fun GitHubNavGraph(
                     navArgument(REPO_ID) { type = NavType.StringType }
                 )
             ) {
-                RepoDetailScreen()
+                val userId = it.arguments?.getString(USER_ID)!!
+                val repoId = it.arguments?.getString(REPO_ID)!!
+                val viewModel = hiltViewModel<RepoDetailViewModel>()
+                RepoDetailScreen(
+                    userId = userId,
+                    repoId = repoId,
+                    viewModel = viewModel
+                )
             }
         }
     }

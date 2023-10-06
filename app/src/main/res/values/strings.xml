@@ -13,4 +13,9 @@
     <string name="starred_button">Starred projects</string>
     <string name="followers">%1s followers</string>
     <string name="following">%1s following</string>
+    <string name="no_repo_found_error">Seems the repo can\'t be found</string>
+    <string name="forks">forks: %1s</string>
+    <string name="license">License: %1s</string>
+    <string name="html_url">URL: %1s</string>
+    <string name="home_page">Home page: %1s</string>
 </resources>

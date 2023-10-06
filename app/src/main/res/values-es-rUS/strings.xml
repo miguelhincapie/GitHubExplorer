@@ -13,4 +13,9 @@
     <string name="starred_button">Projectos favoritos</string>
     <string name="followers">%1s seguidores</string>
     <string name="following">%1s siguiendo</string>
+    <string name="no_repo_found_error">Parece que no se encontro el repo</string>
+    <string name="forks">forks: %1s</string>
+    <string name="license">Licencia: %1s</string>
+    <string name="html_url">URL: %1s</string>
+    <string name="home_page">Pagina: %1s</string>
 </resources>

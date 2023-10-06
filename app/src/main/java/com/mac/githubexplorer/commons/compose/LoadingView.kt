@@ -35,7 +35,7 @@ internal fun LoadingView(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                modifier = Modifier.size(220.dp),
+                modifier = Modifier.size(220.dp).padding(16.dp),
                 alignment = Alignment.Center,
                 painter = painterResource(id = R.drawable.clock_fill),
                 contentDescription = stringResource(id = R.string.loading),
@@ -44,7 +44,7 @@ internal fun LoadingView(
                 } else null
             )
             Text(
-                modifier = Modifier.padding(top = 20.dp),
+                modifier = Modifier.padding(20.dp),
                 text = stringResource(id = R.string.loading),
                 style = MaterialTheme.typography.titleLarge.copy(color = MaterialTheme.colorScheme.secondary)
             )

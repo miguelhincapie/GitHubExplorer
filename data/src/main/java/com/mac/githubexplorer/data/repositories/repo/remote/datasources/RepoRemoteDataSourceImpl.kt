@@ -14,4 +14,8 @@ class RepoRemoteDataSourceImpl @Inject constructor(
             it.toDomain()
         }
     }
+
+    override suspend fun getRepoDetail(userId: String, repoId: String): Repo? {
+        return gitHubReposService.getRepoDetail(userId, repoId).body()?.toDomain()
+    }
 }

@@ -25,39 +25,25 @@ import com.mac.githubexplorer.starredrepos.viewmodel.ReposViewModel
 import com.mac.githubexplorer.theme.GitHubExplorerTheme
 
 @Composable
-internal fun GitHubReposScreen(
+internal fun ReposScreen(
     user: String,
     viewModel: ReposViewModel,
-    onRepoTapped: (String) -> Unit
+    onRepoTapped: (String, String) -> Unit
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     LaunchedEffect(Unit) {
         viewModel.fetchStarredRepositories(user)
     }
 
-    GitHubReposView(
-        state = state,
-        onRepoTapped = onRepoTapped
-    )
-}
-
-@Composable
-private fun GitHubReposView(
-    state: RepoListState,
-    onRepoTapped: (String) -> Unit
-) {
     GitHubExplorerTheme {
-        val modifier = Modifier
-            .fillMaxSize()
-            .background(color = MaterialTheme.colorScheme.surface)
-            .padding(16.dp)
+        val modifier = Modifier.fillMaxSize()
         when (state) {
             RepoListState.Loading -> LoadingView(modifier)
             RepoListState.Empty -> EmptyView(modifier)
             is RepoListState.ShowingList -> {
                 RepoList(
                     modifier = modifier,
-                    repoList = state.list,
+                    repoList = (state as RepoListState.ShowingList).list,
                     onRepoTapped = onRepoTapped
                 )
             }
@@ -69,20 +55,24 @@ private fun GitHubReposView(
 private fun RepoList(
     modifier: Modifier = Modifier,
     repoList: List<RepoRowUI>,
-    onRepoTapped: (String) -> Unit
+    onRepoTapped: (String, String) -> Unit
 ) {
-    LazyColumn(
-        modifier = modifier
-    ) {
-        items(repoList) {
-            RepoRowView(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .wrapContentHeight()
-                    .padding(bottom = 16.dp),
-                uiModel = it,
-                onRepoTapped = onRepoTapped
-            )
+    GitHubExplorerTheme {
+        LazyColumn(
+            modifier = modifier
+                .background(color = MaterialTheme.colorScheme.surface)
+                .padding(16.dp)
+        ) {
+            items(repoList) {
+                RepoRowView(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .wrapContentHeight()
+                        .padding(bottom = 16.dp),
+                    uiModel = it,
+                    onRepoTapped = onRepoTapped
+                )
+            }
         }
     }
 }
@@ -98,53 +88,36 @@ private fun GitHubReposViewPreview() {
             name = "Repo name dummy 1",
             description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
             language = "Language: Kotlin",
-            stargazersCount = "Stars: 1234"
+            stargazersCount = "Stars: 1234",
+            ownerLogin = ""
         ),
         RepoRowUI(
             name = "Repo name dummy 2",
             description = "Lorem Ipsum is simply dummy",
             language = "Language: Kotlin",
-            stargazersCount = "Stars: 4321"
+            stargazersCount = "Stars: 4321",
+            ownerLogin = ""
         ),
         RepoRowUI(
             name = "Repo name dummy 3",
             description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
             language = "Language: Kotlin",
-            stargazersCount = "Stars: 1"
+            stargazersCount = "Stars: 1",
+            ownerLogin = ""
         ),
         RepoRowUI(
             name = "Repo name dummy 4",
             description = "Lorem Ipsum is simply dummy",
             language = "Language: Kotlin",
-            stargazersCount = "Stars: 22"
+            stargazersCount = "Stars: 22",
+            ownerLogin = ""
         )
     ).let {
-        GitHubReposView(
-            RepoListState.ShowingList(it),
-        ) {}
+        RepoList(
+            modifier = Modifier.fillMaxSize(),
+            repoList = it,
+        ) { _, _ -> }
     }
-}
-
-@Composable
-@Preview(
-    device = Devices.PIXEL_4,
-    showBackground = true
-)
-private fun GitHubReposViewEmptyPreview() {
-    GitHubReposView(
-        RepoListState.Empty,
-    ) {}
-}
-
-@Composable
-@Preview(
-    device = Devices.PIXEL_4,
-    showBackground = true
-)
-private fun GitHubReposViewLoadingPreview() {
-    GitHubReposView(
-        RepoListState.Loading,
-    ) {}
 }
 
 @Composable
@@ -159,29 +132,34 @@ private fun GitHubReposViewPreviewDark() {
             name = "Repo name dummy 1",
             description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
             language = "Language: Kotlin",
-            stargazersCount = "Stars: 1234"
+            stargazersCount = "Stars: 1234",
+            ownerLogin = ""
         ),
         RepoRowUI(
             name = "Repo name dummy 2",
             description = "Lorem Ipsum is simply dummy",
             language = "Language: Kotlin",
-            stargazersCount = "Stars: 4321"
+            stargazersCount = "Stars: 4321",
+            ownerLogin = ""
         ),
         RepoRowUI(
             name = "Repo name dummy 3",
             description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard",
             language = "Language: Kotlin",
-            stargazersCount = "Stars: 1"
+            stargazersCount = "Stars: 1",
+            ownerLogin = ""
         ),
         RepoRowUI(
             name = "Repo name dummy 4",
             description = "Lorem Ipsum is simply dummy",
             language = "Language: Kotlin",
-            stargazersCount = "Stars: 22"
+            stargazersCount = "Stars: 22",
+            ownerLogin = ""
         )
     ).let {
-        GitHubReposView(
-            RepoListState.ShowingList(it),
-        ) {}
+        RepoList(
+            modifier = Modifier.fillMaxSize(),
+            repoList = it,
+        ) { _, _ -> }
     }
 }

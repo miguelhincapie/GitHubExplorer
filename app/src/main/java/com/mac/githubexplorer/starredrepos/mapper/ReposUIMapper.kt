@@ -23,12 +23,11 @@ class ReposUIMapper @Inject constructor(
 
     private fun Repo.toRepoRowUI(context: Context): RepoRowUI {
         return RepoRowUI(
-            id = id,
             name = name,
-            htmlUrl = htmlUrl,
             description = description,
             language = String.format(context.getString(R.string.language), language),
-            stargazersCount = String.format(context.getString(R.string.stars), stargazersCount)
+            stargazersCount = String.format(context.getString(R.string.stars), stargazersCount),
+            ownerLogin = ownerLogin
         )
     }
 }

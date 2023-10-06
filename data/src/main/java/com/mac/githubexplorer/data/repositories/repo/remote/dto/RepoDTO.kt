@@ -1,6 +1,7 @@
 package com.mac.githubexplorer.data.repositories.repo.remote.dto
 
 import com.google.gson.annotations.SerializedName
+import com.mac.githubexplorer.data.repositories.user.remote.dto.UserDTO
 
 // Network DTO
 data class RepoDTO(
@@ -29,5 +30,7 @@ data class RepoDTO(
     @SerializedName("topics")
     val topics: List<String>?,
     @SerializedName("forks")
-    val forks: Int?
+    val forks: Int?,
+    @SerializedName("owner")
+    val owner: UserDTO?
 )

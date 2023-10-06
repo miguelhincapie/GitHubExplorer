@@ -17,7 +17,8 @@ fun RepoDTO.toDomain() = Repo(
     homepage = homepage.orEmpty(),
     license = license?.toDomain(),
     topics = topics.orEmpty(),
-    forks = forks ?: 0
+    forks = forks ?: 0,
+    ownerLogin = owner?.login ?: ""
 )
 
 fun RepoDB.toDomain() = Repo(
@@ -33,5 +34,6 @@ fun RepoDB.toDomain() = Repo(
     homepage = homepage.orEmpty(),
     license = license?.toDomain(),
     topics = topics.orEmpty(),
-    forks = forks ?: 0
+    forks = forks ?: 0,
+    ownerLogin = ownerLogin.orEmpty()
 )

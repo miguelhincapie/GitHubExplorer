@@ -24,12 +24,12 @@ import com.mac.githubexplorer.theme.GitHubExplorerTheme
 internal fun RepoRowView(
     modifier: Modifier = Modifier,
     uiModel: RepoRowUI,
-    onRepoTapped: (String) -> Unit
+    onRepoTapped: (String, String) -> Unit
 ) {
     GitHubExplorerTheme {
         Card(
             modifier = modifier.background(color = MaterialTheme.colorScheme.surface),
-            onClick = { onRepoTapped.invoke(uiModel.name) }
+            onClick = { onRepoTapped.invoke(uiModel.ownerLogin, uiModel.name) }
         ) {
             Column(
                 modifier = Modifier
@@ -39,13 +39,13 @@ internal fun RepoRowView(
             ) {
                 Text(
                     modifier = Modifier.fillMaxWidth(),
-                    style = MaterialTheme.typography.titleMedium,
+                    style = MaterialTheme.typography.titleMedium.copy(color = MaterialTheme.colorScheme.primary),
                     maxLines = 1,
                     text = uiModel.name
                 )
                 Text(
                     modifier = Modifier.fillMaxWidth(),
-                    style = MaterialTheme.typography.bodyMedium,
+                    style = MaterialTheme.typography.bodyMedium.copy(color = MaterialTheme.colorScheme.secondary),
                     maxLines = 4,
                     overflow = TextOverflow.Ellipsis,
                     text = uiModel.description
@@ -54,7 +54,7 @@ internal fun RepoRowView(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(top = 20.dp),
-                    style = MaterialTheme.typography.bodySmall,
+                    style = MaterialTheme.typography.bodySmall.copy(color = MaterialTheme.colorScheme.outline),
                     maxLines = 1,
                     text = uiModel.language
                 )
@@ -79,9 +79,10 @@ private fun RepoRowViewPreview() {
         name = "Repo name dummy",
         description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
         language = "Language: Kotlin",
-        stargazersCount = "Stars: 1234"
+        stargazersCount = "Stars: 1234",
+        ownerLogin = ""
     ).let {
-        RepoRowView(uiModel = it) {}
+        RepoRowView(uiModel = it) { _, _ -> }
     }
 }
 
@@ -96,8 +97,9 @@ private fun RepoRowViewPreviewDark() {
         name = "Repo name dummy",
         description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
         language = "Language: Kotlin",
-        stargazersCount = "Stars: 1234"
+        stargazersCount = "Stars: 1234",
+        ownerLogin = ""
     ).let {
-        RepoRowView(uiModel = it) {}
+        RepoRowView(uiModel = it) { _, _ -> }
     }
 }

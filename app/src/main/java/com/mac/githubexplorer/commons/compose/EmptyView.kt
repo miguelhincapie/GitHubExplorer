@@ -36,7 +36,9 @@ internal fun EmptyView(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                modifier = Modifier.size(220.dp),
+                modifier = Modifier
+                    .size(220.dp)
+                    .padding(16.dp),
                 alignment = Alignment.Center,
                 painter = painterResource(id = R.drawable.emoji_dizzy_fill),
                 contentDescription = text,
@@ -45,7 +47,7 @@ internal fun EmptyView(
                 } else null
             )
             Text(
-                modifier = Modifier.padding(top = 20.dp),
+                modifier = Modifier.padding(20.dp),
                 text = text,
                 style = MaterialTheme.typography.titleLarge.copy(color = MaterialTheme.colorScheme.secondary)
             )

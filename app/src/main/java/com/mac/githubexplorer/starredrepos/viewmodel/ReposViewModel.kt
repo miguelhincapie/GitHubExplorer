@@ -1,10 +1,10 @@
 package com.mac.githubexplorer.starredrepos.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.mac.githubexplorer.domain.usecases.GetRemoteStarredReposUseCase
 import com.mac.githubexplorer.commons.exception.UIExceptionHandler
 import com.mac.githubexplorer.commons.exception.UIExceptionHandlerImpl
 import com.mac.githubexplorer.commons.exception.launchWithExceptionHandler
+import com.mac.githubexplorer.domain.usecases.GetRemoteStarredReposUseCase
 import com.mac.githubexplorer.starredrepos.mapper.ReposUIMapper
 import com.mac.githubexplorer.starredrepos.model.RepoListState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -25,9 +25,6 @@ class ReposViewModel
     val state = _state.asStateFlow()
 
     fun fetchStarredRepositories(userName: String) {
-        if (userName.isEmpty()) {
-            return
-        }
         launchWithExceptionHandler {
             getRemoteStarredReposUseCase.invoke(userName)
                 .onStart { _state.value = RepoListState.Loading }
