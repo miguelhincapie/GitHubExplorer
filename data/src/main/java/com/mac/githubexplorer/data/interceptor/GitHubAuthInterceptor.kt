@@ -1,6 +1,6 @@
 package com.mac.githubexplorer.data.interceptor
 
-import com.example.data.BuildConfig
+import com.mac.githubexplorer.data.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response

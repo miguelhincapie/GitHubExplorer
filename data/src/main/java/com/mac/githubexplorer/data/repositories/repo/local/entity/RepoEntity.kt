@@ -1,15 +1,14 @@
-package com.mac.githubexplorer.data.repositories.repo.local.entities
+package com.mac.githubexplorer.data.repositories.repo.local.entity
 
 import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.mac.githubexplorer.data.repositories.repo.remote.dto.LicenseDTO
 
-// Database DTO
-@Entity(tableName = "Repo")
-data class RepoDB(
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
+@Entity(tableName = "repo")
+data class RepoEntity(
+    @PrimaryKey(autoGenerate = false)
+    @ColumnInfo(name = "repoId")
     val id: Int,
     @ColumnInfo(name = "name")
     val name: String,
@@ -29,10 +28,8 @@ data class RepoDB(
     val stargazersCount: Int,
     @ColumnInfo("homepage")
     val homepage: String?,
-    @ColumnInfo("license")
-    val license: LicenseDTO?,
-    @ColumnInfo("topics")
-    val topics: List<String>?,
+    @Embedded(prefix = "license")
+    val license: LicenseEntity?,
     @ColumnInfo("forks")
     val forks: Int?,
     @ColumnInfo("owner_login")

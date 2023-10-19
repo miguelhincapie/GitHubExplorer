@@ -1,12 +1,11 @@
 package com.mac.githubexplorer.home.viewmodel
 
-import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModel
-import com.mac.githubexplorer.domain.usecases.GetUserAvatarUseCase
-import com.mac.githubexplorer.domain.usecases.GetUserUseCase
 import com.mac.githubexplorer.commons.exception.UIExceptionHandler
 import com.mac.githubexplorer.commons.exception.UIExceptionHandlerImpl
 import com.mac.githubexplorer.commons.exception.launchWithExceptionHandler
+import com.mac.githubexplorer.domain.usecases.GetUserAvatarUseCase
+import com.mac.githubexplorer.domain.usecases.GetUserUseCase
 import com.mac.githubexplorer.home.mapper.UserUIMapper
 import com.mac.githubexplorer.home.model.HomeState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +16,6 @@ import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 
 @HiltViewModel
-@SuppressLint("StaticFieldLeak")
 class HomeViewModel @Inject constructor(
     private val getUserUseCase: GetUserUseCase,
     private val getUserAvatarUseCase: GetUserAvatarUseCase,

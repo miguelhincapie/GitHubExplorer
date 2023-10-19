@@ -1,13 +1,19 @@
 package com.mac.githubexplorer.data.di
 
+import android.content.Context
+import androidx.room.Room
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.mac.githubexplorer.data.interceptor.GitHubAuthInterceptor
+import com.mac.githubexplorer.data.repositories.commons.local.GitHubDatabase
 import com.mac.githubexplorer.data.repositories.commons.remote.api.GitHubReposService
+import com.mac.githubexplorer.data.repositories.repo.local.datasource.dao.RepoDao
+import com.mac.githubexplorer.data.repositories.user.local.datasource.dao.UserDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -70,5 +76,29 @@ class DataModuleProvides {
     @Provides
     fun provideGitHubReposService(retrofit: Retrofit): GitHubReposService {
         return retrofit.create(GitHubReposService::class.java)
+    }
+
+    @Provides
+    fun provideRoomDB(
+        @ApplicationContext context: Context
+    ): GitHubDatabase {
+        return Room.databaseBuilder(
+            context,
+            GitHubDatabase::class.java, "gitHubDataBase-dev"
+        ).build()
+    }
+
+    @Provides
+    fun provideUserDao(
+        db: GitHubDatabase
+    ): UserDao {
+        return db.userDao()
+    }
+
+    @Provides
+    fun provideRepoDao(
+        db: GitHubDatabase
+    ): RepoDao {
+        return db.repoDao()
     }
 }

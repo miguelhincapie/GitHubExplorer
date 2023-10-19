@@ -1,4 +1,4 @@
-package com.mac.githubexplorer.data.repositories.repo.remote.datasources
+package com.mac.githubexplorer.data.repositories.repo.remote.datasource
 
 import com.mac.githubexplorer.domain.model.Repo
 
